@@ -1,0 +1,672 @@
+<mvc:View controllerName="zsewmender.controller.View1"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	>
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page
+				id="wizardContentPage"
+				showHeader="false"
+				showFooter="true"
+				>
+				<content>
+					<Wizard id="CreateProductWizard" class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+							complete="wizardCompletedHandler">
+						<!-- 
+						Passo 1 
+						-->
+						<WizardStep id="Lotes"
+									title="Lotes"
+									activate="loteActivate"
+									complete="loteComplete"
+									validated="true"
+									>
+
+							<f:Form id="FormChange354"
+									editable="true">
+								<!-- <f:title>
+									<core:Title text="" />
+								</f:title> -->
+							<f:layout>
+								<f:ResponsiveGridLayout id="_IDGenResponsiveGridLayout1"
+									labelSpanXL="12"
+									labelSpanL="12"
+									labelSpanM="12"
+									labelSpanS="12"
+									adjustLabelSpan="false"
+									emptySpanXL="4"
+									emptySpanL="4"
+									emptySpanM="4"
+									emptySpanS="0"
+									columnsXL="1"
+									columnsL="1"
+									columnsM="1"
+									singleContainerFullSize="false" />
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer id="_IDGenFormContainer1">
+									<f:formElements>
+										<f:FormElement id="_IDGenFormElement1" label="1° Lote">
+											<f:fields>
+												<Input 	valueStateText="Entrar Lote 1"
+														valueState="{/loteInput1State}" 
+														id="LoteInput1" 
+														liveChange="additionalInfoValidationLote1"
+														placeholder="" 
+														value="{/LoteInput1}"
+														width="12rem"
+														maxLength="10"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement 	id="_IDGenFormElement2" 
+														label="2° Lote" 
+														visible="{/OriLoteInput2Visible}" >
+											<f:fields>
+												<Input 	valueStateText="Lote inválido"
+														valueState="{/loteInput2State}" 
+														id="LoteInput2" 
+														liveChange="additionalInfoValidationLote2"
+														placeholder="" 
+														value="{/LoteInput2}" 
+														width="12rem"
+														maxLength="10"
+														visible="{/OriLoteInput2Visible}">
+
+												</Input>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+							</f:Form>
+						</WizardStep>
+
+						<!-- 
+						Passo 2
+						-->
+						<WizardStep id="OrigemDestino"
+									title="Origem / Destino"
+									activate="enderecActivate"
+									complete="enderecComplete"
+									validated="true"
+									>
+
+							<VBox id="_IDGenVBox1" class="sapUiSmallMargin">
+							<f:Form id="FormChange1"
+								editable="true">
+								<f:title>
+									<core:Title id="_IDGenTitle1" text="Origem" />
+								</f:title>
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout1" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer2">
+										<f:formElements>
+
+											<f:FormElement id="_IDGenFormElement3" label="Material" >
+												<f:fields>
+													<Text id="OriMatnr" text="{/OriMatnr}" />
+												</f:fields>
+											</f:FormElement>
+
+											<f:FormElement id="_IDGenFormElement4" label="OV" >
+												<f:fields>
+												<Text id="OriVbeln" text="{/OriVbeln}" />
+												</f:fields>
+											</f:FormElement>
+
+											<f:FormElement id="_IDGenFormElement5" label="Cliente" >
+												<f:fields>
+												<Text id="OriKunnr" text="{/OriKunnr}" />
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange2"
+								editable="true">
+								<!-- <f:title>
+									<core:Title text="" />
+								</f:title> -->
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout2" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer3">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement6" label="Largura" >
+											<f:fields>
+												<Text id="OriLargura" text="{/OriLargura}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement7" label="Diâmetro" >
+											<f:fields>
+											<Text id="OriDiametro" text="{/OriDiametro}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement8" label="DI" >
+											<f:fields>
+											<Text id="OriDiametroInt" text="{/OriDiametroInt}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange3"
+								editable="true">
+								<!-- <f:title>
+									<core:Title text="" />
+								</f:title> -->
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout3" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer4">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement9" label="MP" >
+											<f:fields>
+												<Text id="OriMaquina" text="{/OriMaquina}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement10" label="Q" >
+											<f:fields>
+											<Text id="OriQualidade" text="{/OriQualidade}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement11" label="M. Bloq." >
+											<f:fields>
+											<Text id="OriMotivoQualid" text="{/OriMotivoQualid}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange4"
+								editable="true">
+								<!-- <f:title>
+									<core:Title text="" />
+								</f:title> -->
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout4" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer5">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement12" label="Depósito" >
+											<f:fields>
+												<Text id="OriStgeLoc" text="{/OriStgeLoc}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement13" label="Tipo" >
+											<f:fields>
+											<Text id="OriLgtyp" text="{/OriLgtyp}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement14" label="Posição" >
+											<f:fields>
+											<Text id="OriLgpla" text="{/OriLgpla}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange5"
+								editable="true">
+								<f:title>
+									<core:Title id="_IDGenTitle2" text="Destino Sugerido" />
+								</f:title>
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout5" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer6">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement15" label="Sist." >
+											<f:fields>
+												<Text id="DesLgnum" text="{/DesLgnum}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement16" label="Tipo" >
+											<f:fields>
+											<Text id="DesNltyp" text="{/DesNltyp}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement17" label="Posição" >
+											<f:fields>
+											<Text id="DesNlpla" text="{/DesNlpla}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange6"
+								editable="true">
+								<f:title>
+									<core:Title id="_IDGenTitle3" text="Destino Informado" />
+								</f:title>
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout6" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer7">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement18" label="Destino" visible="{/AjusNlplaVisivel}">
+											<f:fields>
+												<Input id="AjusNlpla" value="{/AjusNlpla}" visible="{/AjusNlplaVisivel}" width="12rem" maxLength="15"/>
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement19" label="Cód. Exceção" visible="{/AjusExcecaoVisivel}">
+											<f:fields>
+											<Input id="AjusExcecao" value="{/AjusExcecao}" visible="{/AjusExcecaoVisivel}" width="12rem" maxLength="15"/>
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							</VBox>
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar id="_IDGenOverflowToolbar1">
+						<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+						<Button id="_IDGenButton1" text="Cancel" press="handleWizardCancel"/>
+						<Button id="_IDInfo1" icon="sap-icon://alert" text="{= ${messagez>/}.length }" visible="{= ${messagez>/}.length > 0 }" type="Emphasized" press="onMessagePopoverPress" />
+					</OverflowToolbar>
+				</footer>
+			</Page>
+			
+
+
+			<!-- 
+
+				TELA DE PREVIEW
+
+			-->
+
+			<Page id="wizardReviewPage" showHeader="false" showFooter="true" title="Origem / Destino">
+			
+				<content>
+					<VBox id="_IDGenVBox2">
+					<!-- 
+					Passo 1 
+					-->
+
+						<f:Form id="FormChange01"
+							editable="false">
+							<f:title>
+								<core:Title id="_IDGenTitle4" text="1. Lotes" />
+							</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout id="_IDGenResponsiveGridLayout2"
+									labelSpanXL="12"
+									labelSpanL="12"
+									labelSpanM="12"
+									labelSpanS="12"
+									adjustLabelSpan="false"
+									emptySpanXL="4"
+									emptySpanL="4"
+									emptySpanM="4"
+									emptySpanS="0"
+									columnsXL="1"
+									columnsL="1"
+									columnsM="1"
+									singleContainerFullSize="false" />
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer id="_IDGenFormContainer8">
+								<f:formElements>
+
+									<f:FormElement 	id="_IDGenFormElement20" 
+													label="1° Lote">
+										<f:fields>
+											<Text 	id="LoteInput11"
+													text="{/LoteInput1}"
+													width="12rem" 
+													/>
+										</f:fields>
+									</f:FormElement>
+
+									<f:FormElement 	id="_IDGenFormElement21" 
+													label="2° Lote" 
+													visible="{/OriLoteInput2Visible}" >
+										<f:fields>
+											<Text 	id="LoteInput21"
+													text="{/LoteInput2}" 
+													width="12rem" 
+													visible="{/OriLoteInput2Visible}" />
+										</f:fields>
+									</f:FormElement>
+
+									<f:FormElement id="_IDGenFormElement22" label="" >
+										<f:fields>
+											<Link id="_IDGenLink1" press="editStepOne" text="Editar" />
+										</f:fields>
+									</f:FormElement>
+
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+						</f:Form>
+					<!-- 
+					Passo 2
+					 -->
+							<!-- <f:Form id="FormChange011"
+								editable="false">
+
+								<f:title>
+									<core:Title text="2. Origem / Destino" />
+								</f:title>
+								<f:layout>
+									<f:ColumnLayout 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form> -->
+
+							<f:Form id="FormChange11"
+								editable="false">
+								<!-- <f:toolbar>
+									<Toolbar id="TB1">
+										<Title id="Title1" text="2. Origem / Destino"/>
+									</Toolbar>
+								</f:toolbar> -->
+								<f:title>
+									<core:Title id="_IDGenTitle5" text="Origem" />
+								</f:title>
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout7" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer9">
+										<f:formElements>
+
+											<f:FormElement id="_IDGenFormElement23" label="Material" >
+												<f:fields>
+													<Text id="OriMatnr1" text="{/OriMatnr}" />
+												</f:fields>
+											</f:FormElement>
+
+											<f:FormElement id="_IDGenFormElement24" label="OV" >
+												<f:fields>
+												<Text id="OriVbeln1" text="{/OriVbeln}" />
+												</f:fields>
+											</f:FormElement>
+
+											<f:FormElement id="_IDGenFormElement25" label="Cliente" >
+												<f:fields>
+												<Text id="OriKunnr1" text="{/OriKunnr}" />
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange21"
+								editable="false">
+								<!-- <f:title>
+									<core:Title text="" />
+								</f:title> -->
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout8" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer10">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement26" label="Largura" >
+											<f:fields>
+												<Text id="OriLargura1" text="{/OriLargura}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement27" label="Diametro" >
+											<f:fields>
+											<Text id="OriDiametro1" text="{/OriDiametro}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement28" label="DI" >
+											<f:fields>
+											<Text id="OriDiametroInt1" text="{/OriDiametroInt}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange31"
+								editable="false">
+								<!-- <f:title>
+									<core:Title text="" />
+								</f:title> -->
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout9" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer11">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement29" label="MP" >
+											<f:fields>
+												<Text id="OriMaquina1" text="{/OriMaquina}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement30" label="Q" >
+											<f:fields>
+											<Text id="OriQualidade1" text="{/OriQualidade}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement31" label="M. Bloq." >
+											<f:fields>
+											<Text id="OriMotivoQualid1" text="{/OriMotivoQualid}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange41"
+								editable="false">
+								<!-- <f:title>
+									<core:Title text="" />
+								</f:title> -->
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout10" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer12">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement32" label="Depósito" >
+											<f:fields>
+												<Text id="OriStgeLoc1" text="{/OriStgeLoc}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement33" label="Tipo" >
+											<f:fields>
+											<Text id="OriLgtyp1" text="{/OriLgtyp}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement34" label="Posição" >
+											<f:fields>
+											<Text id="OriLgpla1" text="{/OriLgpla}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+
+							<f:Form id="FormChange51"
+								editable="false">
+								<f:title>
+									<core:Title id="_IDGenTitle6" text="Destino Sugerido" />
+								</f:title>
+								<f:layout>
+									<f:ColumnLayout id="_IDGenColumnLayout11" 
+										columnsM="2"
+										columnsL="3"
+										columnsXL="3"
+									/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer id="_IDGenFormContainer13">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement35" label="Sist." >
+											<f:fields>
+												<Text id="DesLgnum1" text="{/DesLgnum}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement36" label="Tipo" >
+											<f:fields>
+											<Text id="DesNltyp1" text="{/DesNltyp}" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement37" label="Posição" >
+											<f:fields>
+											<Text id="DesNlpla1" text="{/DesNlpla}" />
+											</f:fields>
+										</f:FormElement>
+											
+										</f:formElements>
+									</f:FormContainer>
+
+									<f:FormContainer id="_IDGenFormContainer14">
+										<f:formElements>
+
+										<f:FormElement id="_IDGenFormElement38" label="Destino" visible="{/AjusNlplaVisivel}">
+											<f:fields>
+												<Text id="AjusNlpla1" text="{/AjusNlpla}" visible="{/AjusNlplaVisivel}" width="12rem" />
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement39" label="Cód. Exceção" visible="{/AjusExcecaoVisivel}">
+											<f:fields>
+											<Text id="AjusExcecao1" text="{/AjusExcecao}" visible="{/AjusExcecaoVisivel}" width="12rem"/>
+											</f:fields>
+										</f:FormElement>
+
+										<f:FormElement id="_IDGenFormElement40" label="">
+											<f:fields>
+											<Link id="_IDGenLink2" press="editStepTwo" text="Editar" />
+											</f:fields>
+										</f:FormElement>
+
+										</f:formElements>
+									</f:FormContainer>
+
+								</f:formContainers>
+							</f:Form>
+						</VBox>
+				</content>
+				
+				<footer>
+					<Bar id="_IDGenBar1">
+						<contentRight>
+							<Button id="_IDGenButton2" text="{/handleWizardSubmitText}" press="handleWizardSubmit" enabled="{/handleWizardSubmitEnabled}"/>
+							<Button id="_IDGenButton3" text="Cancelar" press="handleWizardCancel"/>
+							<Button id="_IDGenButton4" icon="sap-icon://alert" text="{= ${messagez>/}.length }" visible="{= ${messagez>/}.length > 0 }" type="Emphasized" press="onMessagePopoverPress" />
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+        </pages>
+    </NavContainer>
+</mvc:View>
